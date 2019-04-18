@@ -1,6 +1,6 @@
 # _my-mvc-extended_
 This is extended version of my previous MVC framework, called 
-[MyMVC](https://github.com/gurjotsaini/my_mvc.git)  
+[MyMVC](https://github.com/gurjotsaini/my_mvc.git).  
 
 ### _Features:_
 1. Flexible routing

@@ -30,7 +30,10 @@
     define('APP_ROOT', dirname(dirname(__FILE__)));
 
     // URL Root
-    define('URL_ROOT', 'https://mymvc.test:8890');
+    define('URL_ROOT', 'https://mymvcext.test:8890');
 
     // Site Name
-    define('SITE_NAME', 'MyMVC');
+    define('SITE_NAME', 'MyMVC_Extended');
+
+    // App Version
+    define('APP_VERSION', '1.0.0');
