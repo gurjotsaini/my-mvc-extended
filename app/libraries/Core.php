@@ -8,7 +8,7 @@
      */
     class Core
     {
-        // Properties
+        // Class Properties
         // If there are no other controllers, Pages controller will load
         protected $currentController    = 'Pages';
         protected $currentMethod        = 'index';
