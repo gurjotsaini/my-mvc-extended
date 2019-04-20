@@ -6,8 +6,8 @@ This is extended version of my previous MVC framework, called
 1. Flexible routing
     > Easily set and manage routes of your pages
 2. Better database connectivity  
-    > Easy to display and create data
-      Easy to update and delete data
+    > i) Easy to display and create data  
+      ii) Easy to update and delete data
 3. Secure
     > We are continuously working towards making this mvc secure
 4. Pretty URLs
@@ -16,6 +16,8 @@ This is extended version of my previous MVC framework, called
     > Easily increase the visibility of a website or a web page to users of a web search engine
 6. Login System
     > User login feature
+7. Helper Methods
+    > For redirecting & displaying messages
 
 **and many more to come..**
 
