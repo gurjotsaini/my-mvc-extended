@@ -33,7 +33,7 @@
     define('URL_ROOT', 'https://mymvcext.test:8890');
 
     // Site Name
-    define('SITE_NAME', 'MyMVC_Extended');
+    define('SITE_NAME', 'My MVC Extended');
 
     // App Version
     define('APP_VERSION', '1.0.1');

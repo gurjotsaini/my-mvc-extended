@@ -9,6 +9,9 @@
 
         }
 
+        /**
+         * Returns data for index page
+         */
         public function index() {
             $data = [
                 'page_title'    =>  'Index',
@@ -20,6 +23,9 @@
             $this->view('pages/index', $data);
         }
 
+        /**
+         * Returns data for about page
+         */
         public function about() {
             $data = [
                 'page_title'        =>  'About Us',

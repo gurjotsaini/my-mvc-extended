@@ -3,6 +3,7 @@
      * Created by User: gurjot
      */
 
+    // Starting Sessions
     session_start();
 
     /**
