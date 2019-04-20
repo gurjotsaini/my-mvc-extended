@@ -12,6 +12,10 @@ This is extended version of my previous MVC framework, called
     > We are continuously working towards making this mvc secure
 4. Pretty URLs
     > Now, easily manage URLs of your pages
+5. SEO Optimized
+    > Easily increase the visibility of a website or a web page to users of a web search engine
+6. Login System
+    > User login feature
 
 **and many more to come..**
 
@@ -21,4 +25,4 @@ This is extended version of my previous MVC framework, called
 and chane 'RewriteBase /public/' to 'RewriteBase YourProject/public/'
 
 #### _Project Credits for Motivation & Styling_:
-Traversy Media, Bootstrap
+Traversy Media, Edwin Diaz, Bootstrap
