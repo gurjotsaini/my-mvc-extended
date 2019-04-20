@@ -40,4 +40,17 @@
                 unset($_SESSION[$class]);
             }
         }
-    }
+    } // end of flash method
+
+    /**
+     * Check if user is logged in or not
+     *
+     * @return bool
+     */
+    function isLoggedIn() {
+        if (isset($_SESSION['user_id'])) {
+            return true;
+        } else {
+            return false;
+        }
+    } // end of isLoggedIn method

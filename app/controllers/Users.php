@@ -193,19 +193,6 @@
             $_SESSION['email']      = $user->email;
             $_SESSION['name']       = $user->name;
 
-            redirect('pages/index');
+            redirect('posts');
         } // end of createUserSession method
-
-        /**
-         * Check if user is logged in or not
-         *
-         * @return bool
-         */
-        public function isLoggedIn() {
-            if (isset($_SESSION['user_id'])) {
-                return true;
-            } else {
-                return false;
-            }
-        } // end of isLoggedIn method
     }
