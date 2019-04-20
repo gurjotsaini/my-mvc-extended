@@ -5,13 +5,16 @@
 
     class Users  extends Controller
     {
+        /**
+         * Users constructor.
+         */
         public function __construct () {
             // Load User model
             $this->userModel = $this->model('User');
         }
 
         /**
-         *
+         * Register method
          */
         public function register() {
             // Check for POST
@@ -101,7 +104,7 @@
         } // end of register method
 
         /**
-         *
+         * Login method
          */
         public function login() {
             // Check for POST
@@ -129,10 +132,26 @@
                     $data['password_error'] = 'Please enter password';
                 }
 
+                // Check for user/email
+                if ($this->userModel->findUserByEmail($data['email'])) {
+                    // User Found
+                } else {
+                    $data['email_error'] = 'No user found';
+                }
+
                 // Making sure errors are empty
                 if (empty($data['email_error']) && empty($data['password_error'])) {
                     // Validated
-                    die('Success');
+                    // Check & Set logged in user
+                    $loggedInUser = $this->userModel->login($data['email'], $data['password']);
+
+                    if ($loggedInUser) {
+                        // Create Session
+                        $this->createUserSession($loggedInUser);
+                    } else {
+                        $data['password_error'] = 'Password incorrect';
+                        $this->view('users/login', $data);
+                    }
                 } else {
                     // Load view
                     $this->view('users/login', $data);
@@ -150,4 +169,43 @@
                 $this->view('users/login', $data);
             }
         } // end of login method
+
+        /**
+         * Logout method
+         */
+        public function logout() {
+            $_SESSION['user_id'];
+            $_SESSION['email'];
+            $_SESSION['name'];
+
+            session_destroy();
+
+            redirect('users/login');
+        }
+
+        /**
+         * Create sessions for User login
+         *
+         * @param $user
+         */
+        private function createUserSession( $user) {
+            $_SESSION['user_id']    = $user->id;
+            $_SESSION['email']      = $user->email;
+            $_SESSION['name']       = $user->name;
+
+            redirect('pages/index');
+        } // end of createUserSession method
+
+        /**
+         * Check if user is logged in or not
+         *
+         * @return bool
+         */
+        public function isLoggedIn() {
+            if (isset($_SESSION['user_id'])) {
+                return true;
+            } else {
+                return false;
+            }
+        } // end of isLoggedIn method
     }
