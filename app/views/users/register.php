@@ -38,7 +38,9 @@
                             </div>
 
                             <div class="col">
-                                <a href="<?= URL_ROOT; ?>/users/login" class="btn btn-light btn-block">Have an account? Login</a>
+                                <div class="row pl-lg-4">
+                                    Have an account?&nbsp;<a href="<?= URL_ROOT; ?>/users/login" class="btn-link"> Login</a>
+                                </div>
                             </div>
                         </div>
                     </form>
