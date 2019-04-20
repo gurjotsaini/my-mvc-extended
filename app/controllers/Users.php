@@ -6,9 +6,13 @@
     class Users  extends Controller
     {
         public function __construct () {
-
+            // Load User model
+            $this->userModel = $this->model('User');
         }
 
+        /**
+         *
+         */
         public function register() {
             // Check for POST
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -32,6 +36,11 @@
                 // Validate Email
                 if (empty($data['email'])) {
                     $data['email_error'] = 'Please enter email';
+                } else {
+                    // Check if email exists
+                    if ($this->userModel->findUserByEmail($data['email'])) {
+                        $data['email_error'] = 'Email already exists';
+                    }
                 }
 
                 // Validate Name
@@ -58,7 +67,17 @@
                 // Making sure errors are empty
                 if (empty($data['email_error']) && empty($data['name_error']) && empty($data['password_error']) && empty($data['con_password_error'])) {
                     // Validated
-                    die('Success');
+
+                    // Hashing password
+                    $data['password'] = password_hash($data['password'], PASSWORD_DEFAULT);
+
+                    // Register User
+                    if ($this->userModel->register($data)) {
+                        flash('register_success', 'You are registered');
+                        redirect('users/login');
+                    } else {
+                        die('Something went wrong');
+                    }
                 } else {
                     // Load view
                     $this->view('users/register', $data);
@@ -81,6 +100,9 @@
             }
         } // end of register method
 
+        /**
+         *
+         */
         public function login() {
             // Check for POST
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
