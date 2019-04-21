@@ -15,7 +15,7 @@
      * @param string $message
      * @param string $class
      */
-    function flash( $name = '', $message = '', $class = 'alert alert-success') {
+    function flash( $name = '', $message = '', $class = 'alert alert-success text-center') {
         // Checking if name is not empty
         if (!empty($name)) {
             // Checking if message is not empty is not already set
