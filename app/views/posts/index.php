@@ -1,6 +1,7 @@
 <?php $pageTitle = $data['page_title']; ?>
 <?php require APP_ROOT . '/views/inc/header.php';  ?>
 <?php require APP_ROOT . '/views/inc/nav.php';  ?>
+    <?php flash('post_message'); ?>
     <div class="container mb-3">
         <div class="row">
             <div class="col-md-6 text-center">

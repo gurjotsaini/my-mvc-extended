@@ -9,6 +9,10 @@
          * Returns data for pages/index page
          */
         public function index() {
+            if (isLoggedIn()) {
+                redirect('posts');
+            }
+
             $data = [
                 'page_title'    =>  'Index',
                 'title'         =>  'Welcome to MyMVC Extended',
