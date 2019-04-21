@@ -3,7 +3,11 @@
      * Created by User: gurjot
      */
 
-    // Page redirect
-    function redirect($location) {
+    /**
+     * Page redirect
+     *
+     * @param $location
+     */
+    function redirect( $location) {
         header('Location: ' . URL_ROOT . '/' . $location);
-    }
+    } // end of redirect method
