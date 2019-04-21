@@ -76,4 +76,19 @@
                 return false;
             }
         } // end of login method
+
+        /**
+         * Find User by id
+         *
+         * @param $id
+         * @return mixed
+         */
+        public function getUserById($id) {
+            $this->db->query('SELECT * FROM users WHERE id = :id');
+            $this->db->bind(':id', $id);
+
+            $row = $this->db->single();
+
+            return $row;
+        } // end of getUserById method
     }

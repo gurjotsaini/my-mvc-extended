@@ -17,6 +17,9 @@
 
             // Calling Post model
             $this->postModel = $this->model('Post');
+
+            // Calling User model
+            $this->userModel = $this->model('User');
         } // end of posts/construct method
 
         /**
@@ -83,5 +86,18 @@
 
                 $this->view('posts/add', $data);
             }
-        }
+        } // end of posts/add method
+
+        public function show($id) {
+            $post = $this->postModel->getPostById($id);
+            $user = $this->userModel->getUserById($post->user_id);
+
+            $data = [
+                'page_title'    =>  'Post - ' . $post->title,
+                'post'          =>  $post,
+                'user'          =>  $user
+            ];
+
+            $this->view('posts/show', $data);
+        } // end of posts/show method
     }

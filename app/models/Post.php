@@ -7,10 +7,16 @@
     {
         private  $db;
 
+        /**
+         * Post constructor.
+         */
         public function __construct () {
             $this->db = new Database();
-        }
+        } // end of construct method
 
+        /**
+         * @return all
+         */
         public function getPosts() {
             $this->db->query('SELECT *, 
                                     posts.id as postId,
@@ -25,9 +31,13 @@
             $results = $this->db->resultSet();
 
             return $results;
-        }
+        } // end of getPosts method
 
-        public function addPost($data) {
+        /**
+         * @param $data
+         * @return bool
+         */
+        public function addPost( $data) {
             $this->db->query('INSERT INTO posts (title, user_id, body) VALUES(:title, :user_id, :body)');
 
             // Binding values
@@ -41,5 +51,20 @@
             } else {
                 return false;
             }
-        }
+        } // end of addPost method
+
+        /**
+         * Find Post by email
+         *
+         * @param $id
+         * @return mixed
+         */
+        public function getPostById($id) {
+            $this->db->query('SELECT * FROM posts WHERE id = :id');
+            $this->db->bind(':id', $id);
+
+            $row = $this->db->single();
+
+            return $row;
+        } // end of getPostById method
     }
