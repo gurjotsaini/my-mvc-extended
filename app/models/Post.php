@@ -68,7 +68,13 @@
             return $row;
         } // end of getPostById method
 
-        public function updatePost($data) {
+        /**
+         * Update Post by id
+         *
+         * @param $data
+         * @return bool
+         */
+        public function updatePost( $data) {
             $this->db->query('UPDATE posts SET title = :title, body = :body WHERE id = :id');
 
             // Binding values
@@ -82,5 +88,25 @@
             } else {
                 return false;
             }
-        }
+        } // end of updatePost method
+
+        /**
+         * Delete Post by id
+         *
+         * @param $id
+         * @return bool
+         */
+        public function deletePost( $id) {
+            $this->db->query('DELETE FROM posts WHERE id = :id');
+
+            // Binding values
+            $this->db->bind(':id', $id);
+
+            // Executing query & returning true or false
+            if ($this->db->execute()) {
+                return true;
+            } else {
+                return false;
+            }
+        } // end of deletePost method
     }
