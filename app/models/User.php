@@ -36,7 +36,11 @@
             }
         } // end of findUserByEmail method
 
-        public function register($data) {
+        /**
+         * @param $data
+         * @return bool
+         */
+        public function register( $data) {
             $this->db->query('INSERT INTO users (name, email, password) VALUES(:name, :email, :password)');
 
             // Binding values
@@ -52,7 +56,12 @@
             }
         } // end of register method
 
-        public function login($email, $password) {
+        /**
+         * @param $email
+         * @param $password
+         * @return bool
+         */
+        public function login( $email, $password) {
             $this->db->query('SELECT * FROM users WHERE email = :email');
             $this->db->bind(':email', $email);
 
@@ -66,5 +75,5 @@
             } else {
                 return false;
             }
-        }
+        } // end of login method
     }

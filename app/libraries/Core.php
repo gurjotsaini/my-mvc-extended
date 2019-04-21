@@ -14,8 +14,10 @@
         protected $currentMethod        = 'index';
         protected $params               = [];
 
+        /**
+         * Core constructor.
+         */
         public function __construct () {
-//            print_r($this->getUrl());
             $url = $this->getUrl();
 
             // Look in controllers for first value
@@ -51,7 +53,7 @@
 
             // Call a callback with array of parameters
             call_user_func_array([$this->currentController, $this->currentMethod], $this->params);
-        }
+        } // end of __construct method
 
         /**
          * Get URL value
@@ -70,5 +72,5 @@
 
                 return $url;
             }
-        }
+        } // end of getUrl method
     }

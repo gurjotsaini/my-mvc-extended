@@ -5,12 +5,8 @@
 
     class Pages extends Controller
     {
-        public function __construct () {
-
-        }
-
         /**
-         * Returns data for index page
+         * Returns data for pages/index page
          */
         public function index() {
             $data = [
@@ -24,7 +20,7 @@
         }
 
         /**
-         * Returns data for about page
+         * Returns data for pages/about page
          */
         public function about() {
             $data = [
