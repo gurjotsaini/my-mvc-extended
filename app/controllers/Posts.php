@@ -168,4 +168,25 @@
                 $this->view('posts/edit', $data);
             }
         } // end of posts/edit method
+
+        public function delete($id) {
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                // Get existing post from model
+                $post = $this->postModel->getPostById($id);
+
+                // Check for Owner
+                if ($post->user_id != $_SESSION['user_id']) {
+                    redirect('posts');
+                }
+
+                if ($this->postModel->deletePost($id)) {
+                    flash('post_message', 'Post Removed');
+                    redirect('posts');
+                } else {
+                    die('Something went wrong');
+                }
+            } else {
+                redirect('posts');
+            }
+        }
     }
