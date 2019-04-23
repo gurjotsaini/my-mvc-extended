@@ -5,9 +5,8 @@ This is extended version of my previous MVC framework, called
 ### _Features:_
 1. Flexible routing
     > Easily set and manage routes of your pages
-2. Better database connectivity  
-    > i) Easy to display and create data  
-      ii) Easy to update and delete data
+2. Better database connectivity
+    > Connect with database more easily & securely
 3. Secure
     > We are continuously working towards making this mvc secure
 4. Pretty URLs
@@ -18,6 +17,7 @@ This is extended version of my previous MVC framework, called
     > User login feature
 7. Helper Methods
     > For redirecting & displaying messages
+8. CRUD methods
 
 **and many more to come..**
 
